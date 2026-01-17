@@ -1,0 +1,10 @@
+This is purely for educational purposes
+
+Hey, this is for directory for your services. Here you'll have business logic implemented. It's business logic layer
+
+This is to keep routes clean
+Routes should only do HTTP thing: parse request, return response
+Everything else - logic, calculation, DB work - belongs here
+
+We separate business logic from the web logic
+It's good for usability, good for testability

@@ -1,0 +1,12 @@
+This is purely for educational purposes
+
+Hey, this directory created for your schemas = Pydantic models used for I/O
+Here you will have
+* Request bodies
+* Response bodies
+* Validation
+* Serialization
+* API contacts
+
+They define what goes in and goes out of your API, not how your data stored internaly
+So it is public-facing shape of data

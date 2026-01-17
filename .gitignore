@@ -1,0 +1,17 @@
+# virtual environments
+api/.api_venv
+consumer/.venv_consumer
+
+# environment files
+**/.env
+
+# python
+**/__pycache__/
+**/*.pyc
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+
+

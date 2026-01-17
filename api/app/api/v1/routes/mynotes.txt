@@ -1,0 +1,6 @@
+This is just for an educational purposes.
+
+hey there. You are in routes directory. This is pure HTTP layer
+> No business logic
+> No DB logic
+> Call service methods, return schemas
