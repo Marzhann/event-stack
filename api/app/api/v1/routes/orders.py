@@ -2,13 +2,13 @@ from fastapi import APIRouter, Depends, HTTPException
 from kafka import KafkaProducer
 from typing import List
 
-from api.app.api.deps.kafka_deps import get_kafka_producer
-from api.app.auth.dependencies import get_current_user
-from api.app.schemas.order import OrderCreate, OrderRead, OrderBase
-from api.app.api.v1.dependencies.order_deps import get_order_service
-from api.app.schemas.user import UserInDB
-from api.app.services.order_service import OrderService
-from api.app.services.exceptions import OrderNotFoundError
+from app.api.deps.kafka_deps import get_kafka_producer
+from app.auth.dependencies import get_current_user
+from app.schemas.order import OrderCreate, OrderRead, OrderBase
+from app.api.v1.dependencies.order_deps import get_order_service
+from app.schemas.user import UserInDB
+from app.services.order_service import OrderService
+from app.services.exceptions import OrderNotFoundError
 
 
 router = APIRouter()

@@ -2,10 +2,10 @@ from pydantic.v1 import EmailStr
 from typing import List
 from sqlalchemy.orm import Session
 
-from api.app.core.security import verify_password, get_password_hash
-from api.app.schemas.user import UserInDB, UserCreate, UserRead
-from api.app.services.exceptions import UserNotFoundError, WrongUserPassword, UserAlreadyExistError
-from api.app.models.user import User
+from app.core.security import verify_password, get_password_hash
+from app.schemas.user import UserInDB, UserCreate, UserRead
+from app.services.exceptions import UserNotFoundError, WrongUserPassword, UserAlreadyExistError
+from app.models.user import User
 
 
 class UserService:

@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 
 SQLAlchemy
-psycopg
+psycopg2-binary
 
 kafka-python
 
@@ -13,3 +13,5 @@ python-jose[cryptography]
 
 email-validator
 python-multipart
+
+alembic

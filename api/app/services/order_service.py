@@ -3,12 +3,12 @@ from typing import List, Sequence
 from kafka import KafkaProducer
 from sqlalchemy.orm import Session
 
-from api.app.schemas.order import OrderCreate, OrderRead, OrderBase
-from api.app.services.exceptions import OrderNotFoundError
-from api.app.models.order import Order
-from api.app.kafka.schemas.orders import OrderCreatedPayload
-from api.app.kafka.schemas.envelope import EventEnvelope
-from api.app.kafka.serialization import to_bytes
+from app.schemas.order import OrderCreate, OrderRead, OrderBase
+from app.services.exceptions import OrderNotFoundError
+from app.models.order import Order
+from app.kafka.schemas.orders import OrderCreatedPayload
+from app.kafka.schemas.envelope import EventEnvelope
+from app.kafka.serialization import to_bytes
 
 
 class OrderService:

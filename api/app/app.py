@@ -4,16 +4,10 @@ load_dotenv("app/.env")
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
-from api.app.kafka.producer import create_kafka_producer
-from api.app.api.v1.routes.orders import router as orders_router
-from api.app.api.v1.routes.users import router as user_router
-from api.app.auth.router import router as auth_router
-
-# one time run, remove after
-# from api.app.core.db import Base, engine
-# print("DB URL:", str(engine.url))
-# print("SQLAlchemy models registered:", sorted(Base.metadata.tables.keys()))
-# Base.metadata.create_all(bind=engine)
+from app.kafka.producer import create_kafka_producer
+from app.api.v1.routes.orders import router as orders_router
+from app.api.v1.routes.users import router as user_router
+from app.auth.router import router as auth_router
 
 
 @asynccontextmanager

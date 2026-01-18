@@ -1,6 +1,6 @@
 import datetime
 
-from api.app.core.db import Base
+from app.core.db import Base
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Float
 
 

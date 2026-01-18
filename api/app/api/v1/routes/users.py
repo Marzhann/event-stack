@@ -1,10 +1,10 @@
 from fastapi import APIRouter, status, Depends, HTTPException
 from typing import List
 
-from api.app.api.v1.dependencies.user_deps import get_user_service
-from api.app.schemas.user import UserRead, UserCreate
-from api.app.services.exceptions import UserAlreadyExistError
-from api.app.services.user_service import UserService
+from app.api.v1.dependencies.user_deps import get_user_service
+from app.schemas.user import UserRead, UserCreate
+from app.services.exceptions import UserAlreadyExistError
+from app.services.user_service import UserService
 
 
 router = APIRouter()

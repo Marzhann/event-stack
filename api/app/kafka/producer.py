@@ -1,6 +1,6 @@
 from kafka import KafkaProducer
 
-from api.app.core.config import KAFKA_BOOTSTRAP_SERVERS
+from app.core.config import KAFKA_BOOTSTRAP_SERVERS
 
 
 def create_kafka_producer() -> KafkaProducer:
