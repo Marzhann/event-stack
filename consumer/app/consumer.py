@@ -1,17 +1,19 @@
 from kafka import KafkaConsumer
 
-from consumer.app.core.config import KAFKA_BOOTSTRAP_SERVERS
-from consumer.app.messaging.events.envelope import from_bytes, EventEnvelope
-from consumer.app.messaging.events.orders import OrderCreatedPayload
-from consumer.app.services.event_inbox import EventInboxService
+from datetime import datetime, timezone
+
+from app.core.config import KAFKA_BOOTSTRAP_SERVERS
+from app.messaging.events.envelope import from_bytes, EventEnvelope
+from app.messaging.events.orders import OrderCreatedPayload
+from app.services.event_inbox import EventInboxService
 
 
 def main():
     consumer = KafkaConsumer(
         "orders.created",
         bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS,
-        auto_offset_reset="latest",
-        enable_auto_commit=True,
+        auto_offset_reset="earliest",
+        enable_auto_commit=False,
         group_id="debug_consumer",
     )
 
@@ -65,15 +67,24 @@ def main():
             try:
                 # processing logic
                 pass
-                inbox.update_status(event_id=event.event_id, status="PROCESSED")
+                inbox.update_status(
+                    event_id=event.event_id,
+                    status="PROCESSED",
+                )
             except Exception as e:
-                inbox.update_status(event_id=event.event_id, status="FAILED_TO_PROCESS")
+                inbox.update_status(
+                    event_id=event.event_id,
+                    status="FAILED_TO_PROCESS",
+                    error=str(e)
+                )
         else:
             print(
-                f"[INBOX_NOT_SAVED] event_id={event.event_id} (already in inbox) "
+                f"[INBOX_NOT_SAVED/DUPLICATION DETECTED] event_id={getattr(event, 'event_id', None)} (already in inbox) "
                 f"topic={msg.topic} p={msg.partition} o={msg.offset}"
             )
 
+        # save kafka offset - confirm delivery
+        consumer.commit()
 
 
 
