@@ -48,6 +48,3 @@ def main():
 
                 print(f"[REPROCESS_FAILED] event_id={row.event_id} err={e}")
 
-
-
-

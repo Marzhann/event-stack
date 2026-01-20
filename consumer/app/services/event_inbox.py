@@ -16,7 +16,10 @@ class EventInboxService:
             raw_json: str,
             status: str,
             error: str,
-            raw_bytes: bytes,
+            raw_bytes: bytes = None,
+            payload_s3_key: str = None,
+            payload_size_bytes: int = None,
+            payload_content_type: str = None
     ) -> bool:
         db = SessionLocal()
         try:
@@ -32,6 +35,9 @@ class EventInboxService:
                 created_at=datetime.utcnow(),
                 error=error,
                 raw_bytes_64=raw_bytes,
+                payload_s3_key=payload_s3_key,
+                payload_size_bytes=payload_size_bytes,
+                payload_content_type=payload_content_type
             )
 
             db.add(row)
