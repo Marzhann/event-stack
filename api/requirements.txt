@@ -8,7 +8,8 @@ kafka-python
 
 python-dotenv
 
-passlib[bcrypt]
+bcrypt>=4,<5
+passlib==1.7.4
 python-jose[cryptography]
 
 email-validator
