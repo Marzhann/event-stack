@@ -41,6 +41,7 @@ services:
 
   postgres:
     image: postgres:16
+    container_name: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -49,6 +50,16 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+
+  event-api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: event-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - api/.env
 
 volumes:
   kafka_data:
