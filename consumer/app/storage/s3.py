@@ -2,8 +2,8 @@ import boto3
 from botocore.exceptions import ClientError
 
 
-MAX_INLINE_BYTES = 64 * 1024  # 64KB
-
+# MAX_INLINE_BYTES = 64 * 1024  # 64KB
+MAX_INLINE_BYTES = 200
 
 def get_s3_client(
         endpoint_url: str,
